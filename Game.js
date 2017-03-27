@@ -69,6 +69,7 @@ BasicGame.Game.prototype = {
         waterX = (this.world.height/2) + 60;
         
         pop1 = this.add.audio('sfxPop1');
+        jump = this.add.audio('sfxJump');
         
         background = this.add.sprite(this.world.width/2, this.world.height/2, 'sptBackground');
         background.anchor.setTo(0.5, 0.5);
@@ -157,6 +158,7 @@ BasicGame.Game.prototype = {
                     if(gameActive == false){
                         ySpeed = -40;
                         gameActive = true;
+                        jump.play();
                     }
                     //gameActive = true;
             }
@@ -166,6 +168,22 @@ BasicGame.Game.prototype = {
             this.gameLoop();
             if(peng.angle < 170){
                 peng.angle += 6;
+            }
+            if(gameComplete == true && inWater == false && peng.x < 20){
+                gameComplete = false;
+                gameActive = false;
+                peng.y = (iceberg1.y - peng.height);
+                peng.x = 60;
+                
+                iceberg1.y = this.world.height/2;
+                iceberg1top.y = this.world.height/2;
+                iceberg2.y = this.world.height/2;
+                iceberg2.anchor.setTo(0.5, 0.0);
+                iceberg2top.y = this.world.height/2;
+                iceberg2top.anchor.setTo(0.5, 1);
+
+                water.y = waterX;
+                water.anchor.setTo(0.5, 0);
             }
         }
         

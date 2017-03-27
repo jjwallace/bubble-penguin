@@ -37,6 +37,8 @@ BasicGame.Preloader.prototype = {
         this.load.atlas('sptBubble', 'assets/sprite/bubble.png', 'assets/sprite/bubble.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
         
         this.load.audio('sfxPop1', ['assets/audio/pop1.mp3', 'assets/audio/pop1.ogg']);
+        
+        this.load.audio('sfxJump', ['assets/audio/jump.mp3', 'assets/audio/jump.ogg']);
 	},
 
 	create: function () {
