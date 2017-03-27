@@ -172,8 +172,6 @@ BasicGame.Game.prototype = {
             if(gameComplete == true && inWater == false && peng.x < 20){
                 gameComplete = false;
                 gameActive = false;
-                peng.y = (iceberg1.y - peng.height);
-                peng.x = 60;
                 
                 iceberg1.y = this.world.height/2;
                 iceberg1top.y = this.world.height/2;
@@ -182,6 +180,9 @@ BasicGame.Game.prototype = {
                 iceberg2top.y = this.world.height/2;
                 iceberg2top.anchor.setTo(0.5, 1);
 
+                peng.y = (iceberg1.y - peng.height);
+                peng.x = 60;
+                
                 water.y = waterX;
                 water.anchor.setTo(0.5, 0);
             }
